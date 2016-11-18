@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="form-group">
+
+        <table class="table" >
+            <tr>
+                <th>#</th>
+                <th>Role Name</th>
+                <th>Description</th>
+                <th>Date Created</th>
+                <th>Active</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat="data in vm.userRoles">
+                <td>{{data.roleId}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.roleDateCreated | date:'MM-dd-yyyy'}}</td>
+                <td>
+                    <input type="checkbox" ng-model="data.isActive">
+                </td>
+                <td><button class="btn btn-primary" ng-click="vm.removeRole(data.roleId)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+    <div class="form-group">
+        <label>Add Role</label>
+        <input type="text" class="form-control" placeholder="Role"  ng-model="vm.roleName">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" placeholder="Description" ng-model="vm.roleDescription">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="vm.isActive">Active</label>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="vm.addRole()">Submit</button>
+</div>
+<p ui-view></p>

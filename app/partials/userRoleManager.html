@@ -1,0 +1,44 @@
+<div class="container">
+    <pre>{{vm.userRoleList}}</pre>
+    <div class="form-group">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Role</th>
+                <th>Last Update</th>
+            </tr>
+            <tr ng-repeat="data in vm.userRoleList">
+                <td>#</td>
+                <td>{{data.userId}}</td>
+                <td>{{data.roleId}}</td>
+                <td>{{data.lastUpdated | date:'MM-dd-yyyy'}}</td>
+            </tr>
+        </table>
+    </div>
+    <!-- Edit User Roles button -->
+    <div class="form-group">
+        <button class="btn btn-primary" type="button" ng-hide="vm.editUserRolesForm" ng-click="vm.editUserRolesForm =!vm.editUserRolesForm">Edit User Roles</button>
+    </div>
+    <!-- Edit User Roles Form-->
+    <div ng-show="vm.editUserRolesForm">
+        <!-- User Selection -->
+        <div class="form-group">
+            <label for="user">Select User</label>
+            <select class="form-control" ng-model="vm.userSelected" name="user" ng-options="user.userId as user.userName for user in vm.userList[0]" ng-change="vm.populateRoleDropDownList(vm.userSelected)" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <!-- Role selection  -->
+        <div class="form-group">
+            <label for="role">Add/Remove Roles</label>
+            <pre>{{vm.roleList[0]}}</pre>
+            <div ng-dropdown-multiselect="" options="vm.roleList[0]" selected-model="vm.selectedRoles" extra-settings="vm.roles" events=""></div>
+        </div>
+    </div>
+    <!-- Done Editing button -->
+    <div class="form-group">
+        <button class="btn btn-primary" type="button" ng-show="vm.editUserRolesForm" ng-click="vm.doneEditingUserRoles()">Done Editing</button>
+    </div>
+</div>
+<p ui-view></p>

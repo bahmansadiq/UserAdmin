@@ -1,0 +1,66 @@
+<div class="container">
+<pre>{{vm.allUsers}}</pre>
+    <div class="panel panel-primary col-sm-offset-2 col-sm-8">
+        <div class="panel-heading row ">
+            <h4 class="text-center">User Registeration</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label>First Name</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="vm.firstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label>Last Name</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="vm.lastName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label>Email</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="vm.emailAddress">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label>Username</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="vm.userName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label for="inputPassword3">Password</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="vm.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12 control-label">
+                    <label for="inputPassword3">retype-Password</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="retype-Password">
+                </div>
+            </div>
+            <legend></legend>
+            <div class="form-group col-sm-12">
+                <button type="submit" class="btn btn-primary" ng-click="vm.addUser()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p ui-view></p>
